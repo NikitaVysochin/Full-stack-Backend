@@ -3,6 +3,7 @@ const Task = require('../../db/index');
 module.exports.createNewTasks = (req, res) => {
   const task = new Task(req.body);
 	if (req.body.hasOwnProperty('nameShop') &&
+			req.body.hasOwnProperty('dateShop') &&
 			req.body.hasOwnProperty('rubles')
 	) {
 		task.save().then(result =>{
@@ -19,6 +20,7 @@ module.exports.createNewTasks = (req, res) => {
 
 module.exports.changeTaskInfo = (req, res) => {
 	if (req.body.hasOwnProperty('nameShop') &&
+			req.body.hasOwnProperty('dateShop') &&
 			req.body.hasOwnProperty('rubles') &&
 			req.body.hasOwnProperty('_id')
 	) {
